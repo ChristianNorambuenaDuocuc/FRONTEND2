@@ -1,5 +1,34 @@
 
 import { Link } from "react-router"
+import TarjetaSupermercado from "../components/TarjetaSupermercado"
+
+
+const tarjetas = [
+  {
+    id: 1,
+    titulo: "Variedad de productos",
+    descripcion: "Contamos con alimentos, bebidas, productos de limpieza y artículos para el hogar.",
+    imagen: "/imagenes/super1.png",
+    alt: "Variedad de productos del supermercado"
+  },
+  {
+    id: 2,
+    titulo: "Inventario organizado",
+    descripcion: "Promovemos un control eficiente de las existencias y la disponibilidad de productos.",
+    imagen: "/imagenes/super2.png",
+    alt: "Inventario organizado en el supermercado"
+  },
+  {
+    id: 3,
+    titulo: "Atención al cliente",
+    descripcion: "Nuestro compromiso es entregar un servicio cercano, confiable y de calidad.",
+    imagen: "/imagenes/super3.png",
+    alt: "Atención al cliente en el supermercado"
+  }
+]
+
+
+
 
 function Inicio() {
   return (
@@ -43,76 +72,24 @@ function Inicio() {
           y controlar su disponibilidad.
         </p>
 
+        
         <div className="row g-4">
-
-          <div className="col-md-4">
-            <div className="card h-100 tarjeta-supermercado">
-              <img
-                src="/imagenes/super1.png"
-                className="card-img-top imagen-tarjeta"
-                alt="Variedad de productos del supermercado"
-              />
-
-              <div className="card-body text-center p-4">
-                <h3 className="h5 titulo-tarjeta">
-                  Variedad de productos
-                </h3>
-                <p className="text-secondary">
-                  Contamos con alimentos, bebidas,
-                  productos de limpieza y artículos
-                  para el hogar.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-md-4">
-            <div className="card h-100 tarjeta-supermercado">
-              <img
-                src="/imagenes/super2.png"
-                className="card-img-top imagen-tarjeta"
-                alt="Estanterías con productos organizados"
-              />
-
-              <div className="card-body text-center p-4">
-                <h3 className="h5 titulo-tarjeta">
-                  Inventario organizado
-                </h3>
-                <p className="text-secondary">
-                  Promovemos un control eficiente
-                  de las existencias y la
-                  disponibilidad de productos.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-md-4">
-            <div className="card h-100 tarjeta-supermercado">
-            <img
-              src="/imagenes/super3.png"
-              className="card-img-top imagen-tarjeta"
-              alt="Atención al cliente en el supermercado"
+          {tarjetas.map((tarjeta) => (
+            <TarjetaSupermercado
+              key={tarjeta.id}
+              titulo={tarjeta.titulo}
+              descripcion={tarjeta.descripcion}
+              imagen={tarjeta.imagen}
+              alt={tarjeta.alt}
             />
-
-              <div className="card-body text-center p-4">
-                <h3 className="h5 titulo-tarjeta">
-                  Atención al cliente
-                </h3>
-                <p className="text-secondary">
-                  Nuestro compromiso es entregar
-                  un servicio cercano, confiable
-                  y de calidad.
-                </p>
-              </div>
-            </div>
-          </div>
-
+          ))}
         </div>
+
       </section>
 
       {/* Contacto */}
       <section className="container text-center py-5">
+
 
         <h2 className="fw-bold">
           ¿Necesitas comunicarte con nosotros?

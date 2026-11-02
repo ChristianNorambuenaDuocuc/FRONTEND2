@@ -1,4 +1,30 @@
 import { Link } from 'react-router'
+import TarjetaInformativa from "../components/TarjetaInformativa"
+
+const valores = [
+  {
+    id: 1,
+    titulo: "Calidad",
+    descripcion: "Ofrecemos productos que cumplen con nuestros estándares de calidad."
+  },
+  {
+    id: 2,
+    titulo: "Compromiso",
+    descripcion: "Trabajamos para satisfacer las necesidades de nuestros clientes."
+  },
+  {
+    id: 3,
+    titulo: "Confianza",
+    descripcion: "Buscamos entregar una experiencia de compra segura y confiable."
+  },
+  {
+    id: 4,
+    titulo: "Organización",
+    descripcion: "Mantenemos un control eficiente de nuestro inventario y nuestros productos."
+  }
+]
+
+
 
 function QuienesSomos() {
   return (
@@ -51,81 +77,44 @@ function QuienesSomos() {
 
       <section className="container py-4">
         <div className="row g-4">
-          <div className="col-md-6">
-            <div className="card h-100 border-0 shadow-sm">
-              <div className="card-body">
-                <h2 className="h5 fw-bold text-primary">Misión</h2>
-                <p className="text-secondary mb-0">
-                Ofrecer productos de calidad a precios accesibles,
-                garantizando una atención eficiente y una adecuada
-                gestión del inventario.
-              </p>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-6">
-            <div className="card h-100 border-0 shadow-sm">
-              <div className="card-body">
-                <h2 className="h5 fw-bold text-primary">Visión</h2>
-                <p className="text-secondary mb-0">
-                  Ser un supermercado reconocido por la calidad
-                  de sus productos, la satisfacción de sus clientes
-                  y la eficiencia de sus procesos.
-                </p>
-              </div>
-            </div>
-          </div>
+          
+
+        <TarjetaInformativa
+          titulo="Misión"
+          descripcion="Ofrecer productos de calidad a precios accesibles, garantizando una atención eficiente y una adecuada gestión del inventario."
+        />
+
+
+        <TarjetaInformativa
+          titulo="Visión"
+          descripcion="Ser un supermercado reconocido por la calidad de sus productos, la satisfacción de sus clientes y la eficiencia de sus procesos."
+        />
+
         </div>
       </section>
 
       <section className="container py-4">
         <h2 className="h4 fw-bold">Nuestros valores</h2>
-        <div className="row g-4">
-          <div className="col-6 col-md-3">
+        
+
+         
+      <div className="row g-4">
+        {valores.map((valor) => (
+          <div className="col-6 col-md-3" key={valor.id}>
             <div className="card h-100 border-0 shadow-sm">
               <div className="card-body text-center">
-                <h3 className="h6 fw-bold text-primary mb-2">Calidad</h3>
+                <h3 className="h6 fw-bold text-primary mb-2">
+                  {valor.titulo}
+                </h3>
                 <p className="small text-secondary mb-0">
-                Ofrecemos productos que cumplen con nuestros
-                estándares de calidad.
-              </p>
+                  {valor.descripcion}
+                </p>
               </div>
             </div>
           </div>
-          <div className="col-6 col-md-3">
-            <div className="card h-100 border-0 shadow-sm">
-              <div className="card-body text-center">
-                <h3 className="h6 fw-bold text-primary mb-2">Compromiso</h3>
-                <p className="small text-secondary mb-0">
-                Trabajamos para satisfacer las necesidades
-                de nuestros clientes.
-              </p>
-              </div>
-            </div>
-          </div>
-          <div className="col-6 col-md-3">
-            <div className="card h-100 border-0 shadow-sm">
-              <div className="card-body text-center">
-                <h3 className="h6 fw-bold text-primary mb-2">Confianza</h3>
-                <p className="small text-secondary mb-0">
-                Buscamos entregar una experiencia de compra
-                segura y confiable.
-              </p>
-              </div>
-            </div>
-          </div>
-          <div className="col-6 col-md-3">
-            <div className="card h-100 border-0 shadow-sm">
-              <div className="card-body text-center">
-                <h3 className="h6 fw-bold text-primary mb-2">Organización</h3>
-                <p className="small text-secondary mb-0">
-                Mantenemos un control eficiente de nuestro
-                inventario y nuestros productos.
-              </p>
-              </div>
-            </div>
-          </div>
-        </div>
+        ))}
+      </div>
+
       </section>
 
       <section className="container py-4">

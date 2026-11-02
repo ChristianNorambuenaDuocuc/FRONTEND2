@@ -1,3 +1,6 @@
+/* ========================================
+   Colores generales
+   ======================================== */
 :root {
   --color-primario: #2f7d5b;
   --color-primario-rgb: 47, 125, 91;
@@ -8,10 +11,13 @@
 }
 
 body {
-  background-color: #f8f9fa;
-  color: #212529;
+  background-color: #f7f6f2;
+  color: #20383d;
 }
 
+/* ========================================
+   Botones
+   ======================================== */
 .btn-primary {
   --bs-btn-bg: var(--color-primario);
   --bs-btn-border-color: var(--color-primario);
@@ -30,43 +36,6 @@ body {
   --bs-btn-active-border-color: #256547;
 }
 
-.navbar .nav-link.active {
-  color: var(--color-primario);
-  font-weight: 600;
-  background-color: rgba(var(--color-primario-rgb), 0.1);
-}
-
-a:focus-visible,
-.nav-link:focus-visible,
-.btn:focus-visible {
-  outline: 2px solid var(--color-primario);
-  outline-offset: 2px;
-}
-
-.tarjeta-img {
-  height: 220px;
-  width: 100%;
-  object-fit: cover;
-}
-
-
-/* Colores generales */
-body {
-  background-color: #f7f6f2;
-  color: #20383d;
-}
-
-/* Presentación principal */
-.hero-supermercado {
-  background: linear-gradient(120deg, #20383d, #3e645d);
-  color: white;
-}
-
-.hero-supermercado h1 {
-  color: white;
-}
-
-/* Botones */
 .btn-dorado {
   background-color: #d9ad73;
   color: #20383d;
@@ -80,26 +49,16 @@ body {
   color: #20383d;
 }
 
-/* Tarjetas */
-.tarjeta-supermercado {
-  background-color: white;
-  border: 1px solid #e8e6e1;
-  border-radius: 14px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s;
+a:focus-visible,
+.nav-link:focus-visible,
+.btn:focus-visible {
+  outline: 2px solid var(--color-primario);
+  outline-offset: 2px;
 }
 
-.tarjeta-supermercado:hover {
-  transform: translateY(-4px);
-}
-
-/* Títulos de tarjetas */
-.titulo-tarjeta {
-  color: #3e645d;
-  font-weight: 700;
-}
-
-/* Barra de navegación */
+/* ========================================
+   Barra de navegación
+   ======================================== */
 .navbar {
   background-color: #ffffff !important;
 }
@@ -108,7 +67,38 @@ body {
   color: #20383d !important;
 }
 
-/* Imágenes de las tarjetas */
+.navbar .nav-link.active {
+  color: var(--color-primario);
+  font-weight: 600;
+  background-color: rgba(var(--color-primario-rgb), 0.1);
+}
+
+/* ========================================
+   Página de inicio
+   ======================================== */
+.hero-supermercado {
+  background: linear-gradient(120deg, #20383d, #3e645d);
+  color: white;
+}
+
+.hero-supermercado h1 {
+  color: white;
+}
+
+.tarjeta-supermercado {
+  background-color: white;
+  border: 1px solid #e8e6e1;
+  border-radius: 14px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+  height: 100%;
+  overflow: hidden;
+}
+
+.tarjeta-supermercado:hover {
+  transform: translateY(-4px);
+}
+
 .tarjeta-supermercado .imagen-tarjeta {
   width: 100%;
   height: 210px !important;
@@ -117,38 +107,43 @@ body {
   flex-shrink: 0;
 }
 
-/* Tarjetas del supermercado */
-.tarjeta-supermercado {
-  height: 100%;
-  overflow: hidden;
-}
-
-/* Contenido de las tarjetas */
 .tarjeta-supermercado .card-body {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+.titulo-tarjeta {
+  color: #3e645d;
+  font-weight: 700;
+}
 
-/* Página Quiénes somos */
+/* ========================================
+   Página Quiénes somos
+   ======================================== */
 .pagina-nosotros {
   background-color: #f7f6f2;
   color: #20383d;
+  min-height: 100vh;
 }
 
-/* Títulos principales */
+.pagina-nosotros > section:first-child {
+  background-color: #edf2ef;
+}
+
 .pagina-nosotros h1,
 .pagina-nosotros h2 {
   color: #20383d;
 }
 
-/* Títulos destacados */
 .pagina-nosotros .text-primary {
   color: #3e645d !important;
 }
 
-/* Tarjetas */
+.pagina-nosotros .text-secondary {
+  color: #667780 !important;
+}
+
 .pagina-nosotros .card {
   background-color: #ffffff;
   border: 1px solid #e8e6e1 !important;
@@ -156,71 +151,11 @@ body {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
-/* Textos secundarios */
-.pagina-nosotros .text-secondary {
-  color: #667780 !important;
-}
-
-/* Botón de contacto */
 .pagina-nosotros .btn-primary {
   background-color: #d9ad73;
   border-color: #d9ad73;
   color: #20383d;
   font-weight: 600;
-}
-
-.pagina-nosotros .btn-primary:hover {
-  background-color: #c99a5b;
-  border-color: #c99a5b;
-  color: #20383d;
-}
-
-/* Página Quiénes somos */
-
-.pagina-nosotros {
-  background-color: #f7f6f2;
-  color: #20383d;
-  min-height: 100vh;
-}
-
-/* Presentación principal */
-.pagina-nosotros > section:first-child {
-  background-color: #edf2ef;
-}
-
-/* Títulos */
-.pagina-nosotros h1,
-.pagina-nosotros h2 {
-  color: #20383d;
-}
-
-/* Cuadro de compromiso */
-.cuadro-compromiso {
-  background-color: #e4ebe7;
-  border: 1px solid #d5dfd9;
-}
-
-.cuadro-compromiso h2 {
-  color: #20383d;
-}
-
-/* Tarjetas */
-.pagina-nosotros .card {
-  background-color: #ffffff;
-  border: 1px solid #e8e6e1 !important;
-  border-radius: 14px;
-}
-
-/* Títulos de tarjetas */
-.pagina-nosotros .text-primary {
-  color: #3e645d !important;
-}
-
-/* Botón */
-.pagina-nosotros .btn-primary {
-  background-color: #d9ad73;
-  border-color: #d9ad73;
-  color: #20383d;
 }
 
 .pagina-nosotros .btn-primary:hover {

@@ -1,29 +1,23 @@
-import Navegacion from './components/Navigation'
-import Footer from './components/Footer'
 import { Routes, Route } from 'react-router'
 import Inicio from './pages/Inicio'
 import QuienesSomos from './pages/QuienesSomos'
 import Contactanos from './pages/Contactanos'
+import PaginaNoEncontrada from './pages/PaginaNoEncontrada'
+import Layout from './components/Layout'
 
 function App() {
 
 
   return (
-    <>
-      <div className="d-flex flex-column min-vh-100">
-      <Navegacion />
-
-      <main className="flex-grow-1">
+    
         <Routes>
-          <Route path="/" element={<Inicio />} />
-          <Route path="/quienes-somos" element={<QuienesSomos />} />
-          <Route path="/contactanos" element={<Contactanos />} />
+          <Route element={<Layout />}>
+            <Route path="/" element={<Inicio />} />
+            <Route path="/quienes-somos" element={<QuienesSomos />} />
+            <Route path="/contactanos" element={<Contactanos />} />
+            <Route path="*" element={<PaginaNoEncontrada />} />
+          </Route>
         </Routes>
-      </main>
-
-      <Footer />
-      </div>
-    </>
   )
 }
 
