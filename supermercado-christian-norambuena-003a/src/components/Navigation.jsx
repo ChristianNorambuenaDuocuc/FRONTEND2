@@ -1,11 +1,15 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router'
 
+
 const enlaces = [
   { to: '/', etiqueta: 'Inicio', end: true },
   { to: '/quienes-somos', etiqueta: 'Quiénes somos' },
   { to: '/contactanos', etiqueta: 'Contáctanos' },
+  { to: '/agregar-producto', etiqueta: 'Agregar producto' },
+  { to: '/inventario', etiqueta: 'Inventario' },
 ]
+
 
 function Navigation() {
   const [menuAbierto, setMenuAbierto] = useState(false)
