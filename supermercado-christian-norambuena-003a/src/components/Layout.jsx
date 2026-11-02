@@ -1,20 +1,15 @@
-
-import { Outlet } from "react-router"
-import Navegacion from "./Navigation"
-import Footer from "./Footer"
+import { Outlet } from 'react-router'
+import Navigation from './Navigation'
+import Footer from './Footer'
 
 function Layout() {
   return (
-    <div className="d-flex flex-column min-vh-100">
-
-      <Navegacion />
-
-      <main className="flex-grow-1">
+    <div className="flex min-h-screen flex-col bg-sand text-forest">
+      <Navigation />
+      <main className="flex-1">
         <Outlet />
       </main>
-
       <Footer />
-
     </div>
   )
 }

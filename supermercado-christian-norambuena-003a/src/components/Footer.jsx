@@ -1,15 +1,12 @@
 function Footer() {
   return (
-    <footer className="bg-white border-top py-4 mt-5">
-      <div className="container text-center text-secondary">
-        <p className="fw-semibold mb-1 text-dark">Supermercado Central</p>
-        <p className="small mb-0">
-          Los mejores productos al mejor precio.
-        </p>
+    <footer className="mt-10 border-t border-stone-200 bg-white py-6">
+      <div className="mx-auto max-w-6xl px-4 text-center sm:px-6">
+        <p className="mb-1 font-semibold text-forest">Supermercado Central</p>
+        <p className="text-sm text-slate-500">Los mejores productos al mejor precio.</p>
       </div>
     </footer>
-  );
-
+  )
 }
 
-export default Footer;
+export default Footer

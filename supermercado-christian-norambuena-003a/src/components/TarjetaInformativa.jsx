@@ -1,19 +1,9 @@
-
 function TarjetaInformativa({ titulo, descripcion }) {
   return (
-    <div className="col-md-6">
-      <div className="card h-100 border-0 shadow-sm">
-        <div className="card-body">
-          <h2 className="h5 fw-bold text-primary">
-            {titulo}
-          </h2>
-
-          <p className="text-secondary mb-0">
-            {descripcion}
-          </p>
-        </div>
-      </div>
-    </div>
+    <article className="h-full rounded-2xl border border-[#e8e6e1] bg-white p-6 shadow-sm">
+      <h2 className="mb-3 text-xl font-bold text-forest-soft">{titulo}</h2>
+      <p className="text-slate-600">{descripcion}</p>
+    </article>
   )
 }
 
