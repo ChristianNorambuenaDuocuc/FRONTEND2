@@ -4,7 +4,7 @@ import { useInventario } from '../hooks/useInventario'
 
 function DetalleProducto() {
   const { id } = useParams()
-  const { productos } = useInventario()
+  const { productos, agregarAlCarrito } = useInventario()
 
   const producto = productos.find(
     (producto) => producto.id === id
@@ -39,6 +39,15 @@ function DetalleProducto() {
         <p className="mb-4">
           Stock disponible: {producto.stock}
         </p>
+
+        <button
+          type="button"
+          onClick={() => agregarAlCarrito(producto.id)}
+          disabled={producto.stock === 0}
+          className="mb-4 block rounded-lg bg-emerald-700 px-5 py-3 font-semibold text-white hover:bg-emerald-800 disabled:cursor-not-allowed disabled:bg-gray-400"
+        >
+          {producto.stock === 0 ? 'Sin stock' : 'Agregar al carrito'}
+        </button>
 
         <Link
           to="/inventario"
