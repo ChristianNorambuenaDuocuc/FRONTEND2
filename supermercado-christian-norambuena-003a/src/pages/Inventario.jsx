@@ -2,6 +2,7 @@
 
 import { useInventario } from '../hooks/useInventario'
 import { useState } from 'react'
+import { Link } from 'react-router'
 
 function Inventario() {
   const { productos } = useInventario()
@@ -58,7 +59,14 @@ function Inventario() {
           <tbody>
             {productosFiltrados.map((producto) => (
               <tr key={producto.id} className="border-b border-gray-200">
-                <td className="px-5 py-3">{producto.nombre}</td>
+                <td className="px-5 py-3">
+                <Link
+  to={`/producto/${producto.id}`}
+  className="font-bold text-blue-600 underline"
+>
+  {producto.nombre} - VER DETALLE
+</Link>
+              </td>
                 <td className="px-5 py-3">{producto.marca}</td>
                 <td className="px-5 py-3">{producto.tipo}</td>
                 <td className="px-5 py-3">{producto.stock}</td>
