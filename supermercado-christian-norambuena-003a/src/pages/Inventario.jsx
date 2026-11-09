@@ -51,6 +51,7 @@ function Inventario() {
               <th className="px-5 py-3">Nombre</th>
               <th className="px-5 py-3">Marca</th>
               <th className="px-5 py-3">Tipo</th>
+              <th className="px-5 py-3">Stock disponible</th>
             </tr>
           </thead>
 
@@ -60,6 +61,7 @@ function Inventario() {
                 <td className="px-5 py-3">{producto.nombre}</td>
                 <td className="px-5 py-3">{producto.marca}</td>
                 <td className="px-5 py-3">{producto.tipo}</td>
+                <td className="px-5 py-3">{producto.stock}</td>
               </tr>
             ))}
           </tbody>
