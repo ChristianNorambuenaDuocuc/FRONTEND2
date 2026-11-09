@@ -1,6 +1,7 @@
 
 import { useState } from 'react'
 import { InventarioContext } from './InventarioContext'
+import { generarId } from '../utils/generarId'
 
 function InventarioProvider({ children }) {
 
@@ -10,7 +11,7 @@ function InventarioProvider({ children }) {
     setProductos((productosActuales) => [
       ...productosActuales,
       {
-        id: crypto.randomUUID(),
+        id: generarId(),
         ...nuevoProducto
       }
     ])
