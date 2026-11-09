@@ -4,7 +4,9 @@ function CampoFormulario({
   valor,
   alCambiar,
   error,
-  placeholder
+  placeholder,
+  tipoInput = 'text',
+minimo
 }) {
   return (
     <div>
@@ -14,7 +16,8 @@ function CampoFormulario({
 
       <input
         id={nombre}
-        type="text"
+        type={tipoInput}
+        min={minimo}
         name={nombre}
         value={valor}
         onChange={alCambiar}

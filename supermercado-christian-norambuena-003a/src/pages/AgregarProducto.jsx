@@ -11,7 +11,8 @@ function AgregarProducto() {
   const [formulario, setFormulario] = useState({
     nombre: '',
     marca: '',
-    tipo: ''
+    tipo: '',
+    stock: ''
   })
 
   const [mensaje, setMensaje] = useState('')
@@ -37,7 +38,8 @@ function AgregarProducto() {
     const producto = {
       nombre: formulario.nombre.trim(),
       marca: formulario.marca.trim(),
-      tipo: formulario.tipo.trim()
+      tipo: formulario.tipo.trim(),
+      stock: Number(formulario.stock)
     }
 
     const erroresEncontrados = validarProducto(producto)
@@ -55,7 +57,8 @@ function AgregarProducto() {
     setFormulario({
       nombre: '',
       marca: '',
-      tipo: ''
+      tipo: '',
+      stock: ''
     })
 
     setMensaje('¡Producto agregado correctamente!')
@@ -103,6 +106,17 @@ function AgregarProducto() {
           alCambiar={manejarCambio}
           error={errores.tipo}
           placeholder="Ej: Lácteos"
+        />
+
+        <CampoFormulario
+          nombre="stock"
+          etiqueta="Cantidad disponible"
+          valor={formulario.stock}
+          alCambiar={manejarCambio}
+          error={errores.stock}
+          placeholder="Ej: 10"
+          tipoInput="number"
+          minimo="1"
         />
 
         <BotonPrimario type="submit">

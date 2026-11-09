@@ -24,5 +24,11 @@ if (!producto.marca.trim()) {
     errores.tipo = 'El tipo contiene caracteres no permitidos'
   }
 
+if (!Number.isInteger(producto.stock) || producto.stock < 1) {
+  errores.stock = 'Ingresa una cantidad entera mayor que cero'
+}
+
+
+
   return errores
 }
