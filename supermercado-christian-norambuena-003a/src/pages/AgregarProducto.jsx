@@ -2,6 +2,7 @@
 
 import { useState, useContext } from 'react'
 import { InventarioContext } from '../context/InventarioContext'
+import { validarProducto } from '../utils/validarProducto'
 
 function AgregarProducto() {
 
@@ -13,6 +14,7 @@ function AgregarProducto() {
   })
 
   const [mensaje, setMensaje] = useState('')
+  const [errores, setErrores] = useState({})
 
   // Accedemos a la función del estado global
   const { agregarProducto } = useContext(InventarioContext)
@@ -37,10 +39,15 @@ function AgregarProducto() {
       tipo: formulario.tipo.trim()
     }
 
-    if (!producto.nombre || !producto.marca || !producto.tipo) {
-      setMensaje('Completa todos los campos.')
+    const erroresEncontrados = validarProducto(producto)
+
+    if (Object.keys(erroresEncontrados).length > 0) {
+      setErrores(erroresEncontrados)
+      setMensaje('')
       return
     }
+
+    setErrores({})
 
     agregarProducto(producto)
 
@@ -66,6 +73,7 @@ function AgregarProducto() {
 
       <form
         onSubmit={manejarEnvio}
+        no Validate
         className="mt-8 space-y-5 rounded-xl border border-gray-200 bg-white p-6 shadow-md"
       >
 
@@ -75,15 +83,23 @@ function AgregarProducto() {
           </label>
 
           <input
-            id="nombre"
-            type="text"
-            name="nombre"
-            value={formulario.nombre}
-            onChange={manejarCambio}
-            required
-            className="w-full rounded-lg border border-gray-300 p-3"
-            placeholder="Ej: Leche"
-          />
+  id="nombre"
+  type="text"
+  name="nombre"
+  value={formulario.nombre}
+  onChange={manejarCambio}
+  required
+  aria-invalid={Boolean(errores.nombre)}
+  aria-describedby={errores.nombre ? 'nombre-error' : undefined}
+  className="w-full rounded-lg border border-gray-300 p-3"
+  placeholder="Ej: Leche"
+/>
+
+{errores.nombre && (
+  <p id="nombre-error" className="mt-1 text-sm text-red-600">
+    {errores.nombre}
+  </p>
+)}
         </div>
 
         <div>
@@ -92,15 +108,23 @@ function AgregarProducto() {
           </label>
 
           <input
-            id="marca"
-            type="text"
-            name="marca"
-            value={formulario.marca}
-            onChange={manejarCambio}
-            required
-            className="w-full rounded-lg border border-gray-300 p-3"
-            placeholder="Ej: Colun"
-          />
+  id="marca"
+  type="text"
+  name="marca"
+  value={formulario.marca}
+  onChange={manejarCambio}
+  required
+  aria-invalid={Boolean(errores.marca)}
+  aria-describedby={errores.marca ? 'marca-error' : undefined}
+  className="w-full rounded-lg border border-gray-300 p-3"
+  placeholder="Ej: Colun"
+/>
+
+{errores.marca && (
+  <p id="marca-error" className="mt-1 text-sm text-red-600">
+    {errores.marca}
+  </p>
+)}
         </div>
 
         <div>
@@ -109,15 +133,23 @@ function AgregarProducto() {
           </label>
 
           <input
-            id="tipo"
-            type="text"
-            name="tipo"
-            value={formulario.tipo}
-            onChange={manejarCambio}
-            required
-            className="w-full rounded-lg border border-gray-300 p-3"
-            placeholder="Ej: Lácteos"
-          />
+  id="tipo"
+  type="text"
+  name="tipo"
+  value={formulario.tipo}
+  onChange={manejarCambio}
+  required
+  aria-invalid={Boolean(errores.tipo)}
+  aria-describedby={errores.tipo ? 'tipo-error' : undefined}
+  className="w-full rounded-lg border border-gray-300 p-3"
+  placeholder="Ej: Lácteos"
+/>
+
+{errores.tipo && (
+  <p id="tipo-error" className="mt-1 text-sm text-red-600">
+    {errores.tipo}
+  </p>
+)}
         </div>
 
         <button
@@ -133,7 +165,10 @@ function AgregarProducto() {
           </p>
         )}
 
-      </form>
+      </form
+      
+  
+>
     </section>
   )
 }

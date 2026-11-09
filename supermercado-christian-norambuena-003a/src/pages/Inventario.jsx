@@ -1,10 +1,9 @@
 
 
-import { useContext } from 'react'
-import { InventarioContext } from '../context/InventarioContext'
+import { useInventario } from '../hooks/useInventario'
 
 function Inventario() {
-  const { productos } = useContext(InventarioContext)
+  const { productos } = useInventario()
 
   return (
     <section className="mx-auto max-w-5xl px-6 py-10">
