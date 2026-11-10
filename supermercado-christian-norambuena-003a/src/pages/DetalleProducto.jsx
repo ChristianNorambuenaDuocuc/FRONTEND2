@@ -42,7 +42,7 @@ function DetalleProducto() {
 
         <button
           type="button"
-          onClick={() => agregarAlCarrito(producto.id)}
+         onClick={() => agregarAlCarrito(producto.id)}
           disabled={producto.stock === 0}
           className="mb-4 block rounded-lg bg-emerald-700 px-5 py-3 font-semibold text-white hover:bg-emerald-800 disabled:cursor-not-allowed disabled:bg-gray-400"
         >
