@@ -8,6 +8,7 @@ import PaginaNoEncontrada from './pages/PaginaNoEncontrada'
 import AgregarProducto from './pages/AgregarProducto'
 import Inventario from './pages/Inventario'
 import DetalleProducto from './pages/DetalleProducto'
+import Carrito from './pages/Carrito'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/inventario" element={<Inventario />} />
         <Route path="/producto/:id" element={<DetalleProducto />} />
         <Route path="*" element={<PaginaNoEncontrada />} />
+        <Route path="/carrito" element={<Carrito />} />
       </Route>
     </Routes>
   )

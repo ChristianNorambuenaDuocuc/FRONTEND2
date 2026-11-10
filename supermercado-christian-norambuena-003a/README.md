@@ -192,3 +192,33 @@ Este proyecto permite aplicar conocimientos de:
 Supermercado Central integra las funcionalidades de navegación, registro de productos y consulta de inventario.
 
 Las mejoras realizadas permiten mantener un código más organizado, reutilizable y fácil de mantener, aplicando buenas prácticas de desarrollo con React.
+
+
+## Nuevas funcionalidades - Actividad Formativa 3
+
+### Filtrado de inventario
+Los usuarios pueden filtrar los productos según su
+categoría mediante un selector dinámico, sin modificar
+los datos originales del inventario.
+
+### Detalle de productos
+Cada producto cuenta con una pantalla de detalle donde
+se muestra su nombre, marca, categoría y stock disponible.
+
+### Carrito de compras
+Los usuarios pueden agregar productos al carrito,
+aumentar o disminuir las cantidades seleccionadas
+y consultar los artículos agregados.
+
+### Actualización de inventario
+Al agregar un producto al carrito, el stock disponible
+disminuye automáticamente.
+
+Al disminuir la cantidad del carrito, las unidades
+se devuelven al inventario.
+
+El sistema impide agregar productos sin stock disponible.
+
+### Tecnologías
+Se continúa utilizando React, Context API,
+React Router y Tailwind CSS.

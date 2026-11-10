@@ -8,6 +8,7 @@ const enlaces = [
   { to: '/contactanos', etiqueta: 'Contáctanos' },
   { to: '/agregar-producto', etiqueta: 'Agregar producto' },
   { to: '/inventario', etiqueta: 'Inventario' },
+  { to: '/carrito', etiqueta: 'Carrito' },
 ]
 
 
