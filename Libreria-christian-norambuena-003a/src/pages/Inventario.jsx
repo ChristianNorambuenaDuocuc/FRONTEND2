@@ -1,12 +1,33 @@
 import { useInventario } from '../hooks/useInventario'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router'
 
 function Inventario() {
   const { productos } = useInventario()
   const [categoria, setCategoria] = useState('todas')
+  const [categorias, setCategorias] = useState([])
+  const [cargando, setCargando] = useState(true)
+const [error, setError] = useState('')
 
-  const categorias = [...new Set(productos.map((producto) => producto.genero))]
+  useEffect(() => {
+  fetch('/api/categorias')
+    .then((respuesta) => {
+      if (!respuesta.ok) {
+        throw new Error('Error al obtener las categorías')
+      }
+
+      return respuesta.json()
+    })
+    .then((datos) => {
+      setCategorias(datos.map((item) => item.nombre))
+    })
+    .catch(() => {
+      setError('No se pudieron cargar las categorías')
+    })
+    .finally(() => {
+      setCargando(false)
+    })
+}, [])
 
   const productosFiltrados = categoria === 'todas'
     ? productos
@@ -16,6 +37,18 @@ function Inventario() {
     <section className="mx-auto max-w-5xl px-6 py-10">
       <h1 className="text-3xl font-bold text-central">Catálogo de libros</h1>
       <p className="mt-3 text-gray-600">Explora los libros disponibles en nuestra librería.</p>
+      {cargando && (
+        <p role="status" className="mt-4 text-blue-600">
+          Cargando categorías...
+        </p>
+      )}
+
+      {error && (
+        <p role="alert" className="mt-4 text-red-600">
+          {error}
+        </p>
+      )}
+
 
       <div className="mt-6">
         <label htmlFor="categoria" className="mr-3 font-medium">Filtrar por género:</label>
