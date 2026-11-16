@@ -1,0 +1,12 @@
+/* Tailwind CSS v4: configura el framework y define los colores propios del proyecto. */
+@import "tailwindcss";
+
+@theme {
+  --color-central: #874d5d;
+  --color-central-dark: #713b4a;
+  --color-forest: #35262d;
+  --color-forest-soft: #735663;
+  --color-sand: #fcf8f3;
+  --color-gold: #ead0aa;
+  --color-gold-hover: #dab886;
+}

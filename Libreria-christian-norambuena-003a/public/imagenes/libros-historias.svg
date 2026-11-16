@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" role="img" aria-label="Libros de diversos géneros">
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#f8e6d9"/><stop offset="1" stop-color="#ebced0"/></linearGradient><filter id="s"><feDropShadow dx="0" dy="8" stdDeviation="8" flood-opacity=".14"/></filter></defs>
+<rect width="720" height="420" fill="url(#bg)"/><ellipse cx="364" cy="345" rx="280" ry="25" fill="#d5aeb0" opacity=".4"/>
+<g filter="url(#s)"><rect x="178" y="83" width="130" height="248" rx="7" fill="#874d5d"/><rect x="189" y="95" width="111" height="224" rx="4" fill="#9e6172"/><path d="M205 118h77M205 129h77M205 280h77" stroke="#f1d9ba" stroke-width="5"/><path d="M241 164l15 31 35 4-26 25 7 35-31-17-31 17 7-35-26-25 35-4z" transform="translate(0 -14) scale(.98)" fill="#f1d9ba"/></g>
+<g filter="url(#s)"><rect x="310" y="116" width="128" height="216" rx="6" fill="#ba885a"/><rect x="320" y="124" width="109" height="198" rx="4" fill="#d0a777"/><path d="M338 151h74M338 164h74M338 288h74" stroke="#fff1d4" stroke-width="5"/><circle cx="373" cy="214" r="31" fill="none" stroke="#fff1d4" stroke-width="7"/></g>
+<g filter="url(#s)"><rect x="442" y="96" width="109" height="236" rx="7" fill="#486c68"/><rect x="452" y="107" width="90" height="213" rx="4" fill="#64867e"/><path d="M465 140h65M465 154h65M465 290h65" stroke="#e8d1a5" stroke-width="5"/><path d="M498 186l9 20 22 2-17 14 6 21-20-12-20 12 6-21-17-14 22-2z" fill="#e8d1a5"/></g><rect x="135" y="330" width="440" height="12" rx="6" fill="#6b4850"/>
+</svg>

@@ -28,6 +28,9 @@ if (!Number.isInteger(producto.stock) || producto.stock < 1) {
   errores.stock = 'Ingresa una cantidad entera mayor que cero'
 }
 
+if (!Number.isInteger(producto.stock) || producto.stock < 1) {
+  errores.stock = 'Ingresa una cantidad entera mayor que cero'
+}
 
 
   return errores
