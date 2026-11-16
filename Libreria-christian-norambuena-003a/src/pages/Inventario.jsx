@@ -3,14 +3,24 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router'
 
 function Inventario() {
-  const { productos } = useInventario()
+  const { productos, categorias, setCategorias } = useInventario()
   const [categoria, setCategoria] = useState('todas')
-  const [categorias, setCategorias] = useState([])
-  const [cargando, setCargando] = useState(true)
+  const [cargando, setCargando] = useState(categorias.length === 0)
 const [error, setError] = useState('')
+const [intento, setIntento] = useState(0)
 
   useEffect(() => {
-  fetch('/api/categorias')
+    if (categorias.length > 0) {
+  return
+}
+  const controller = new AbortController()
+
+  setCargando(true)
+  setError('')
+
+  fetch('/api/categorias', {
+    signal: controller.signal
+  })
     .then((respuesta) => {
       if (!respuesta.ok) {
         throw new Error('Error al obtener las categorías')
@@ -19,15 +29,24 @@ const [error, setError] = useState('')
       return respuesta.json()
     })
     .then((datos) => {
-      setCategorias(datos.map((item) => item.nombre))
+      if (!controller.signal.aborted) {
+        setCargando(false)
+        setCategorias(datos.map((item) => item.nombre))
+      }
     })
-    .catch(() => {
-      setError('No se pudieron cargar las categorías')
+    .catch((error) => {
+      if (error.name !== 'AbortError' && !controller.signal.aborted) {
+        setError('No se pudieron cargar las categorías')
+      }
     })
     .finally(() => {
-      setCargando(false)
+      if (!controller.signal.aborted) {
+        setCargando(false)
+      }
     })
-}, [])
+
+  return () => controller.abort()
+}, [intento,categorias.length, setCategorias])
 
   const productosFiltrados = categoria === 'todas'
     ? productos
@@ -44,10 +63,20 @@ const [error, setError] = useState('')
       )}
 
       {error && (
-        <p role="alert" className="mt-4 text-red-600">
-          {error}
-        </p>
-      )}
+  <div className="mt-4">
+    <p role="alert" className="text-red-600">
+      {error}
+    </p>
+
+    <button
+      type="button"
+      onClick={() => setIntento((actual) => actual + 1)}
+      className="mt-3 rounded-lg bg-central px-4 py-2 text-white"
+    >
+      Reintentar
+    </button>
+  </div>
+)}
 
 
       <div className="mt-6">

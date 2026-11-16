@@ -7,6 +7,7 @@ function InventarioProvider({ children }) {
 
   const [productos, setProductos] = useState([])
   const [carrito, setCarrito] = useState([])
+  const [categorias, setCategorias] = useState([])
 
   const agregarProducto = (nuevoProducto) => {
     setProductos((productosActuales) => [
@@ -92,7 +93,9 @@ const disminuirDelCarrito = (id) => {
   agregarProducto,
   carrito,
   agregarAlCarrito,
-  disminuirDelCarrito
+  disminuirDelCarrito,
+  categorias,
+setCategorias,
 }}
     >
       {children}

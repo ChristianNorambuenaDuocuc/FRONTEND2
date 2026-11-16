@@ -1,4 +1,4 @@
-import { http, HttpResponse } from 'msw'
+import { http, HttpResponse, delay } from 'msw'
 
 const categorias = [
   { id: 1, nombre: 'Ficción' },
@@ -8,7 +8,8 @@ const categorias = [
 ]
 
 export const handlers = [
-  http.get('/api/categorias', () => {
-    return HttpResponse.json(categorias)
-  })
+  http.get('/api/categorias', async () => {
+  await delay(2000)
+  return HttpResponse.json(categorias)
+}),
 ]
